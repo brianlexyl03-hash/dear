@@ -29,7 +29,7 @@ export default function TwitchLivePanel({ api, provider, mode, character, langua
       const response = await fetch(api + "/api/speech", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text })
+        body: JSON.stringify({ text, languageCode: accent.split("-")[0] })
       });
       if (response.ok) {
         const audioBlob = await response.blob();
