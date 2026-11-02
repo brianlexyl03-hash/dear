@@ -18,6 +18,8 @@ The platform cards in the UI are planning/status indicators, not evidence that a
 
 ### Real-time avatar and face effects
 
+The web studio now includes an integration path for the official D-ID Agents SDK. When a D-ID client key and agent ID are configured, it opens a real WebRTC video session in the responsive stage, routes chat and speech to the agent, and cleans up the session on disconnect or page exit. The studio also stores multiple local character profiles, each with its own image, persona fields and D-ID Agent ID, so the creator can switch characters from a phone-sized UI. The repository still needs real D-ID account setup, consented agent provisioning and a real mobile/OBS test before this is called production-ready.
+
 The uploaded portrait is a visual asset, not a live avatar. A production real-time avatar/face-effects path still needs:
 
 1. A rights-cleared avatar asset or a consented likeness model, with a documented identity and usage scope.
