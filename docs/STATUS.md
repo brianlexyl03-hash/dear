@@ -1,5 +1,9 @@
 # Build and integration status
 
+## In progress — 2026-11-03
+
+Live studio foundation work is in progress: documenting the path from the current creator-studio preview to verified OBS output, consented likeness/voice handling, and separately authorized platform integrations. Twitch, TikTok, Instagram/Meta, avatar effects and OBS capture remain unverified and are not marked complete.
+
 - [x] GitHub repository initialized
 - [x] Responsive React/Vite creator studio committed
 - [x] Node/TypeScript API foundation committed
