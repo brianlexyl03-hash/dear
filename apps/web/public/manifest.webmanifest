@@ -1,0 +1,8 @@
+{
+  "name": "LIVE MIND AI",
+  "short_name": "LIVE MIND",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070817",
+  "theme_color": "#070817"
+}

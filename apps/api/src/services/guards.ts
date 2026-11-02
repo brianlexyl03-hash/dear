@@ -1,0 +1,1 @@
+const blocked=[/\b(?:kill yourself|doxx|home address)\b/i];const hits=new Map<string,number[]>();export function moderate(s:string){return !blocked.some(p=>p.test(s));}export function limit(k:string,max=20){const n=Date.now(),a=(hits.get(k)||[]).filter(t=>n-t<60000);if(a.length>=max)return false;a.push(n);hits.set(k,a);return true;}
