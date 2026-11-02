@@ -23,12 +23,32 @@ export default function TwitchLivePanel({ api, provider, mode, character, langua
   const working = useRef(false);
   const active = useRef(false);
 
-  function speak(text: string) {
-    if (!voice || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = accent || language;
-    window.speechSynthesis.speak(utterance);
+  async function speak(text: string) {
+    if (!voice) return;
+    try {
+      const response = await fetch(api + "/api/speech", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text })
+      });
+      if (response.ok) {
+        const audioBlob = await response.blob();
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+        audio.onended = () => URL.revokeObjectURL(audioUrl);
+        audio.onerror = () => { URL.revokeObjectURL(audioUrl); };
+        await audio.play();
+        return;
+      }
+    } catch {
+      // Browser speech is the offline fallback when neural voice is not configured.
+    }
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = accent || language;
+      window.speechSynthesis.speak(utterance);
+    }
   }
 
   async function answer(user: string, message: string) {
