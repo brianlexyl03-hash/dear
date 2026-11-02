@@ -88,6 +88,7 @@ export default function TwitchLivePanel({ api, provider, mode, character, langua
         const item = queue.current.shift()!;
         const split = item.indexOf(":");
         await answer(item.slice(0, split), item.slice(split + 1));
+        if (queue.current.length && active.current) await new Promise(resolve => window.setTimeout(resolve, 6000));
       }
     } finally {
       working.current = false;
@@ -139,6 +140,10 @@ export default function TwitchLivePanel({ api, provider, mode, character, langua
       const user = match[1];
       const message = match[2].trim();
       if (!message || message.startsWith("!")) return;
+      if (queue.current.length >= 5) {
+        setNotice("Chat is moving quickly; holding a short queue to protect response quality and AI usage.");
+        return;
+      }
       queue.current.push(user + ":" + message.slice(0, 500));
       void drain();
     };
