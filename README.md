@@ -13,7 +13,9 @@ Windows-first AI livestream presenter with a responsive web creator studio for A
 - Optional Brave Search adapter (SEARCH_ENABLED=true)
 - Browser speech synthesis for spoken AI replies
 - Basic moderation and per-IP rate limiting
-- Uploaded host reference image used in the live stage
+- Creator-uploaded character portraits (JPG/PNG/WebP) with local browser persistence
+- Per-character name, personality, backstory and speaking-style profiles passed to the AI presenter
+- Responsive character preview and platform connection-status dashboard (TikTok LIVE, Instagram Live, Twitch, YouTube Live and OBS/RTMP)
 - Render service blueprint and GitHub Actions CI
 
 ## Run locally (Windows PowerShell)
