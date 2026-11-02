@@ -2,7 +2,7 @@
 
 Windows-first AI livestream presenter with a responsive web creator studio for Android, iOS and desktop browsers.
 
-> Honest status: the current main branch is a working development foundation. GitHub Actions build and unit tests pass. It is not yet a production livestream platform: TikTok LIVE, OBS capture, real guest audio, production authentication, hosted deployment and a full 3D avatar rig have not been verified.
+> Honest status: this branch adds a read-only Twitch LIVE chat listener that sends incoming chat messages to the AI character and speaks replies locally, plus an optional server-side ElevenLabs neural speech endpoint. Twitch requires a reachable API with AI-provider credentials; ElevenLabs requires its API key and voice ID. TikTok LIVE and Instagram Live event ingestion, YouTube Live chat, OBS capture, production authentication, real guest audio and a full 3D avatar rig are not yet verified. Do not treat a preview deployment as a complete production launch.
 
 ## Included
 
@@ -11,7 +11,8 @@ Windows-first AI livestream presenter with a responsive web creator studio for A
 - Server-side Gemini and OpenAI provider adapters
 - SQLite conversation history
 - Optional Brave Search adapter (SEARCH_ENABLED=true)
-- Browser speech synthesis for spoken AI replies
+- Browser speech synthesis fallback and optional ElevenLabs multilingual neural speech endpoint
+- Twitch public chat listener (read-only): live messages are sent to the character AI and replies are spoken on the creator device; no chat messages are posted back
 - Basic moderation and per-IP rate limiting
 - Creator-uploaded character portraits (JPG/PNG/WebP) with local browser persistence
 - Per-character name, personality, backstory and speaking-style profiles passed to the AI presenter
@@ -41,6 +42,7 @@ npm test
 ## Configuration
 
 - GEMINI_API_KEY or OPENAI_API_KEY: server-side AI provider key.
+- ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID: optional server-side neural speech; browser speech remains the fallback.
 - BRAVE_SEARCH_API_KEY plus SEARCH_ENABLED=true: optional current-information retrieval.
 - DATABASE_PATH: SQLite file path.
 - WEB_ORIGIN: allowed browser origin(s).
@@ -48,7 +50,8 @@ npm test
 ## Live/streaming safety
 
 - AI responses are intended for spoken audio. There is no TikTok chat-send behavior.
-- TikTok LIVE comments are not connected in this initial release. Unofficial connectors may break as TikTok changes its protocols; see docs/TIKTOK-COMPATIBILITY.md.
+- Twitch chat listener is read-only and uses Twitch IRC over WebSocket; it does not send messages to channel chat. The creator must have the channel open and keep the studio active.
+- TikTok LIVE comments are not connected. Unofficial connectors may break as TikTok changes its protocols; see docs/TIKTOK-COMPATIBILITY.md.
 - Guest admission must remain a manual action by the human host.
 - OBS setup notes are in docs/OBS.md; actual OBS audio/video capture still needs a real-machine test.
 - The host reference image is a visual asset, not a rigged photorealistic 3D avatar. Facial blendshapes, phoneme lip sync, dance and gesture animation remain future work.
