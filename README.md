@@ -2,7 +2,7 @@
 
 Windows-first AI livestream presenter with a responsive web creator studio for Android, iOS and desktop browsers.
 
- > Honest status: this branch adds a read-only Twitch LIVE chat listener that sends incoming chat messages to the AI character and speaks replies locally, plus an optional server-side ElevenLabs neural speech endpoint. Twitch requires a reachable API with AI-provider credentials; ElevenLabs requires its API key and voice ID. TikTok LIVE and Instagram Live event ingestion, YouTube Live chat, OBS capture, production authentication, real guest audio and a full 3D avatar rig are not yet verified. Do not treat a preview deployment as a complete production launch.
+> Honest status: this branch adds a read-only Twitch LIVE chat listener that sends incoming chat messages to the AI character and speaks replies locally, plus an optional server-side ElevenLabs neural speech endpoint. Twitch requires a reachable API with AI-provider credentials; ElevenLabs requires its API key and voice ID. TikTok LIVE and Instagram Live event ingestion, YouTube Live chat, OBS capture, production authentication, real guest audio and a full 3D avatar rig are not yet verified. Do not treat a preview deployment as a complete production launch.
 
 ## Included
 
