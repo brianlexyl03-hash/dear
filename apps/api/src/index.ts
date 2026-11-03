@@ -20,6 +20,7 @@ app.use(cors({ origin: allowedOrigins.length === 1 ? allowedOrigins[0] : allowed
 app.use(express.json({ limit: "32kb" }));
 
 app.get("/health", (_req, res) => {
+  res.setHeader("Cache-Control", "no-store, max-age=0");
   res.json({
     status: "ok",
     service: "live-mind-cloud",
