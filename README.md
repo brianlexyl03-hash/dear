@@ -61,6 +61,10 @@ Set the AI provider credentials in the host environment, configure `/data` as pe
 
 See [the real-time avatar research and implementation boundary](docs/REALTIME-AVATAR-RESEARCH.md) before selecting a provider.
 
+### Free tier reality
+
+The free route can host the controller and phone UI, or run a short open-source GPU demo. It cannot guarantee an always-on, smooth, photorealistic 3D avatar broadcast: free Render services sleep and have small CPU limits, while LivePortrait and MuseTalk's real-time claims depend on NVIDIA GPUs. No provider billing, platform restriction, or cloud compute limit is bypassed by this project.
+
 ## Security work required before public production
 
 Add owner authentication/authorization, secure session management, CSRF protections where cookie auth is used, request timeouts, robust moderation, provider spend limits, database backups/retention, consent UX for guest transcription/recording, and production observability. Keep all provider credentials server-side.
