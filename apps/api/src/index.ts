@@ -27,6 +27,10 @@ app.get("/health", (_req, res) => {
     capabilities: {
       characterProfiles: true,
       cloudControlPlane: true,
+      aiProviders: {
+        gemini: Boolean(process.env.GEMINI_API_KEY),
+        openai: Boolean(process.env.OPENAI_API_KEY),
+      },
       browserAvatarPreview: Boolean(process.env.VITE_DID_AGENT_ID),
       serverSideAvatarBroadcast: false,
       platformEvents: false,

@@ -14,7 +14,7 @@ header small { display: block; font-size: 9px; letter-spacing: 2px; color: #8586
 .status { margin-left: auto; color: #9d9bbd; font-size: 12px; }
 .layout { display: grid; grid-template-columns: 1.6fr .9fr; gap: 20px; padding: 22px 0; }
 .stage { height: calc(100vh - 140px); min-height: 560px; max-height: 800px; border: 1px solid #7664c966; border-radius: 22px; position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 35%, #3b2d99, #11173e 48%, #08091b 80%); display: grid; place-items: center; }
-.stage:before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(90deg, #08091b9c, transparent 32%, transparent 75%, #08091b88), linear-gradient(0deg, #08091bdc, transparent 40%), url('/host-reference.jpg') center 24%/cover; opacity: .82; filter: saturate(1.1); }
+.stage:before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(90deg, #08091b9c, transparent 32%, transparent 75%, #08091b88), linear-gradient(0deg, #08091bdc, transparent 40%); opacity: .82; }
 .neon { position: absolute; z-index: 1; width: 65%; height: 35%; filter: blur(65px); opacity: .6; animation: drift 8s infinite alternate; }
 .n1 { top: 5%; left: -10%; background: #5140ff; }
 .n2 { bottom: 8%; right: -10%; background: #00b7ff; }

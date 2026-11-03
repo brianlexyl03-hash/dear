@@ -140,7 +140,7 @@ export default function App() {
   useEffect(() => {
     fetch(API + "/health")
       .then((r) => r.json())
-      .then(() => setStatus("API connected"))
+      .then((data) => setStatus(data.capabilities?.aiProviders?.gemini || data.capabilities?.aiProviders?.openai ? "API connected" : "API connected · AI provider not configured"))
       .catch(() => setStatus("API offline · start the server"));
   }, []);
 
