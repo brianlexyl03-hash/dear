@@ -61,6 +61,8 @@ Set the AI provider credentials in the host environment, configure `/data` as pe
 
 See [the real-time avatar research and implementation boundary](docs/REALTIME-AVATAR-RESEARCH.md) before selecting a provider.
 
+For no-card GPU experiments, see the [free GPU options and restrictions](docs/FREE-GPU-OPTIONS.md). The selected prototype target is Lightning AI; Colab, Kaggle, Hugging Face ZeroGPU, and Render have constraints that make them unsuitable for an unattended live broadcaster.
+
 ### Free tier reality
 
 The free route can host the controller and phone UI, or run a short open-source GPU demo. It cannot guarantee an always-on, smooth, photorealistic 3D avatar broadcast: free Render services sleep and have small CPU limits, while LivePortrait and MuseTalk's real-time claims depend on NVIDIA GPUs. No provider billing, platform restriction, or cloud compute limit is bypassed by this project.
