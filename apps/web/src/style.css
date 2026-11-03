@@ -68,7 +68,6 @@ select { width: 100%; padding: 12px; font-size: 12px; }
 .platform { justify-content: space-between; align-items: flex-start; }
 .platform small, .pending { font-size: 9px; color: #d9ae70; }
 .panel > p { font-size: 10px; color: #8988a8; line-height: 1.5; }
-.simulated-label { display: inline-block; color: #e2b873; font: 700 8px 'Space Grotesk'; letter-spacing: .8px; margin-bottom: 9px; }
 .queue-item { display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; border-top: 1px solid #ffffff12; }
 .queue-item b { color: #ddd6f6; font-size: 10px; }
 .queue-item small { color: #9996b8; font-size: 9px; text-align: right; }
@@ -94,3 +93,4 @@ footer { display: flex; justify-content: space-between; border-top: 1px solid #f
 
 .avatar-video{position:absolute;inset:8% 12% 16%;width:76%;height:72%;object-fit:cover;border-radius:24px;z-index:2;box-shadow:0 18px 60px #0008;border:1px solid #bda6ff88;background:#070817}.avatar-hidden{display:none}.real-avatar-card{display:flex;align-items:center;gap:12px;padding:12px;margin:8px 0 12px;border:1px solid #42e6ff55;border-radius:12px;background:linear-gradient(120deg,#18284b,#17172e)}.real-avatar-card>div{flex:1}.real-avatar-card b,.real-avatar-card small{display:block}.real-avatar-card b{font-size:10px;letter-spacing:1px;color:#9cefff}.real-avatar-card small{font-size:10px;color:#aaa9c5;line-height:1.35;margin-top:4px}.real-avatar-card .go{width:auto;min-width:120px;margin-top:0;padding:10px}.stage:has(.avatar-video){background:#050611}.stage:has(.avatar-video) .caption{background:#050611e8}@media(max-width:550px){.avatar-video{inset:10% 5% 18%;width:90%;height:68%;border-radius:16px}.real-avatar-card{align-items:stretch;flex-direction:column}.real-avatar-card .go{width:100%}}
 .character-switcher{display:flex;gap:8px;align-items:center;margin-bottom:10px}.character-switcher select{flex:1}.character-switcher .toggle{width:auto;white-space:nowrap;margin-top:0;padding:11px 12px}@media(max-width:550px){.character-switcher{align-items:stretch;flex-direction:column}.character-switcher .toggle{width:100%}}
+.empty-state{padding:18px 0;color:#aaa7c1;font-size:11px;border-top:1px solid #ffffff12}.empty-state small{display:block;color:#777895;font-size:9px;line-height:1.5;margin-top:6px}
