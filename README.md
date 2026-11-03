@@ -2,7 +2,7 @@
 
 Windows-first AI livestream presenter with a responsive web creator studio for Android, iOS and desktop browsers.
 
-> Honest status: the current main branch is a working development foundation. GitHub Actions build and unit tests pass. It is not yet a production livestream platform: TikTok LIVE, OBS capture, real guest audio, production authentication, hosted deployment and a full 3D avatar rig have not been verified.
+> Honest status: the current main branch is a working development foundation. GitHub Actions build and unit tests pass. It is not yet a production livestream platform: TikTok LIVE, platform publishing, production authentication, hosted deployment, and an unattended server-side avatar broadcaster have not been verified.
 
 ## Included
 
@@ -16,7 +16,7 @@ Windows-first AI livestream presenter with a responsive web creator studio for A
 - Creator-uploaded character portraits (JPG/PNG/WebP) with local browser persistence
 - Per-character name, personality, backstory and speaking-style profiles passed to the AI presenter
 - Responsive character preview and platform connection-status dashboard (TikTok LIVE, Instagram Live, Twitch, YouTube Live and OBS/RTMP)
-- Render service blueprint and GitHub Actions CI
+- Single-container Render/Deplexo deployment files and GitHub Actions CI
 
 ## Run locally (Windows PowerShell)
 
@@ -51,13 +51,15 @@ npm test
 - TikTok LIVE comments are not connected in this initial release. Unofficial connectors may break as TikTok changes its protocols; see docs/TIKTOK-COMPATIBILITY.md.
 - Guest admission must remain a manual action by the human host.
 - OBS setup notes are in docs/OBS.md; actual OBS audio/video capture still needs a real-machine test.
-- The host reference image is a visual asset, not a rigged photorealistic 3D avatar. Facial blendshapes, phoneme lip sync, dance and gesture animation remain future work.
+- The D-ID path is a browser-side photorealistic WebRTC presenter preview, not a general arbitrary-image-to-3D reconstruction. An unattended cloud broadcaster still needs a server-side avatar stream and media bridge.
 
 ## Deployment
 
-- Frontend: Vercel project live-mind-ai-web, root directory apps/web. Vercel team authorization is still required before deployment can be inspected/launched.
-- API: render.yaml defines a Render web service. Connect the repository in Render and configure secrets before deploying. Add persistent storage or migrate SQLite to managed Postgres before production/multi-instance use.
-- After API deployment, set Vercel VITE_API_URL to the deployed API origin and redeploy the frontend.
+The repository now deploys as one service. `Dockerfile` builds the React app and API, then the API serves the Vite output from the same origin. This avoids a phone browser depending on a localhost API. `render.yaml` is ready for Render, and `deplexo.yaml` is ready for Deplexo's Dockerfile runtime.
+
+Set the AI provider credentials in the host environment, configure `/data` as persistent storage if the host supports it, and verify `/health` before opening the studio. The health response intentionally reports `serverSideAvatarBroadcast: false` until the provider stream and RTMP bridge are implemented.
+
+See [the real-time avatar research and implementation boundary](docs/REALTIME-AVATAR-RESEARCH.md) before selecting a provider.
 
 ## Security work required before public production
 

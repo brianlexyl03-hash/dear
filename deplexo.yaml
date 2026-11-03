@@ -1,0 +1,4 @@
+framework: dockerfile
+dockerfile: Dockerfile
+port: 8787
+healthCheckPath: /health

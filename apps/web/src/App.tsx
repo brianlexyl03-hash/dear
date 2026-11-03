@@ -19,7 +19,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const API = import.meta.env.VITE_API_URL || "http://localhost:8787";
+const API = import.meta.env.VITE_API_URL || (window.location.hostname === "localhost" ? "http://localhost:8787" : "");
 
 type Msg = { id: string; name: string; text: string; host?: boolean };
 type Character = {
